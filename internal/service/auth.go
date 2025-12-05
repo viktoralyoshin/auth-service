@@ -4,6 +4,7 @@ import (
 	"auth-service/internal/model"
 	"auth-service/internal/storage"
 	"context"
+	"database/sql"
 
 	authpb "github.com/viktoralyoshin/playhub-proto/gen/go/auth"
 	"github.com/viktoralyoshin/utils/pkg/errs"
@@ -22,22 +23,20 @@ func NewAuthService(repo *storage.UserRepo) *AuthService {
 }
 
 func (s *AuthService) Register(ctx context.Context, user *model.User) (*model.User, error) {
-	existingEmail, err := s.repo.GetUserByLogin(ctx, user.Email)
-	if err != nil {
-		return &model.User{}, err
-	}
-
-	if existingEmail != nil {
+	_, err := s.repo.GetUserByLogin(ctx, user.Email)
+	if err == nil {
 		return nil, errs.ErrUserEmailExists
 	}
-
-	existingUsername, err := s.repo.GetUserByLogin(ctx, user.Username)
-	if err != nil {
+	if err != sql.ErrNoRows {
 		return &model.User{}, err
 	}
 
-	if existingUsername != nil {
+	_, err = s.repo.GetUserByLogin(ctx, user.Username)
+	if err == nil {
 		return nil, errs.ErrUserUsernameExists
+	}
+	if err != sql.ErrNoRows {
+		return &model.User{}, err
 	}
 
 	passwordHash, err := hasher.HashPassword(user.Password)

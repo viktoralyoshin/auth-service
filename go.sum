@@ -46,6 +46,8 @@ github.com/stretchr/testify v1.11.0 h1:ib4sjIrwZKxE5u/Japgo/7SJV3PvgjGiRNAvTVGqQ
 github.com/stretchr/testify v1.11.0/go.mod h1:wZwfW3scLgRK+23gO65QZefKpKQRnfz6sD981Nm4B6U=
 github.com/viktoralyoshin/playhub-proto v0.0.0-20251203150309-80838a8b69f1 h1:IejqK58dzerNX64N7lvDC+RjsTEYt6LMOzz051wtaPQ=
 github.com/viktoralyoshin/playhub-proto v0.0.0-20251203150309-80838a8b69f1/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
+github.com/viktoralyoshin/playhub-proto v1.0.0 h1:OV4vfqVe5qUxECneUARkii0b2oSD6sf2zgYdYnHDs0A=
+github.com/viktoralyoshin/playhub-proto v1.0.0/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
 github.com/viktoralyoshin/utils v1.2.1 h1:Zx9ufAYivFmhFBVMLvKTfTNBjqeulyXDMy88VX9iKEA=
 github.com/viktoralyoshin/utils v1.2.1/go.mod h1:YA1z2yz2OHp0KvdwK4lFu+2YL4nPE/HRwRpPQL+H+Xo=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=

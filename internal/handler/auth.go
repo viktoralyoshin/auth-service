@@ -5,6 +5,7 @@ import (
 	"auth-service/internal/service"
 	"context"
 
+	"github.com/rs/zerolog/log"
 	authpb "github.com/viktoralyoshin/playhub-proto/gen/go/auth"
 	"github.com/viktoralyoshin/utils/pkg/jwt"
 )
@@ -27,11 +28,13 @@ func (h *AuthHandler) Register(ctx context.Context, req *authpb.RegisterRequest)
 
 	createdUser, err := h.service.Register(ctx, user)
 	if err != nil {
+		log.Error().Msgf("Register, failed to create user: %v", err)
 		return &authpb.RegisterResponse{}, err
 	}
 
 	accessToken, refreshToken, err := h.tokenManager.GenerateTokens(createdUser.Id.String(), string(createdUser.Role))
 	if err != nil {
+		log.Error().Msgf("Register, failed to generate tokens: %v", err)
 		return nil, err
 	}
 

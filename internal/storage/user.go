@@ -59,7 +59,7 @@ func (r *UserRepo) CreateUser(ctx context.Context, User *model.User) (*model.Use
 
 	query := `
 		INSERT INTO auth.users (username, email, password_hash, role)
-		VALUES	($1, $2, $3, $4, $5)
+		VALUES	($1, $2, $3, $4)
 		RETURNING id, username, email, role, created_at, updated_at 
 	`
 
