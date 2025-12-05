@@ -7,6 +7,7 @@ import (
 	"net"
 
 	"github.com/rs/zerolog/log"
+	"github.com/viktoralyoshin/utils/pkg/jwt"
 )
 
 func Start(cfg *config.Config) {
@@ -30,7 +31,12 @@ func Start(cfg *config.Config) {
 		log.Fatal().Msgf("failed to listen: %v", err)
 	}
 
-	s := grpc.Init()
+	tokenManager, err := jwt.NewManager(cfg.JWTSigningKey, cfg.AccessTokenTtl, cfg.RefreshTokenTtl)
+	if err != nil {
+		log.Fatal().Msgf("initialization jwt token manager failed: %v", err)
+	}
+
+	s := grpc.Init(db, tokenManager)
 
 	log.Info().Msgf("Auth Service running on :%s", cfg.GRPCPort)
 	if err := s.Serve(lis); err != nil {
