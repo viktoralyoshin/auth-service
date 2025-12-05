@@ -37,13 +37,13 @@ func (r *UserRepo) GetUserByLogin(ctx context.Context, login string) (*model.Use
 	user := &model.User{}
 
 	query := `
-		SELECT id, username, email, role, created_at, updated_at
+		SELECT id, username, email, role, password_hash, created_at, updated_at
 		FROM auth.users
 		WHERE username = $1 OR email = $1
 	`
 
 	err := r.db.QueryRowContext(ctx, query, login).Scan(
-		&user.Id, &user.Username, &user.Email, &user.Role, &user.CreatedAt, &user.UpdatedAt,
+		&user.Id, &user.Username, &user.Email, &user.Role, &user.PasswordHash, &user.CreatedAt, &user.UpdatedAt,
 	)
 	if err != nil {
 		return nil, err

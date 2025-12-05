@@ -22,6 +22,26 @@ func NewAuthService(repo *storage.UserRepo) *AuthService {
 	}
 }
 
+func (s *AuthService) Login(ctx context.Context, req *authpb.LoginRequest) (*model.User, error) {
+	user, err := s.repo.GetUserByLogin(ctx, req.Login)
+	if err == sql.ErrNoRows {
+		return nil, errs.ErrUserNotFound
+	} else if err != nil {
+		return nil, err
+	}
+
+	match, err := hasher.CheckPassword(req.Password, user.PasswordHash)
+	if err != nil {
+		return nil, err
+	}
+
+	if !match {
+		return nil, errs.ErrUserPassword
+	}
+
+	return user, nil
+}
+
 func (s *AuthService) Register(ctx context.Context, user *model.User) (*model.User, error) {
 	_, err := s.repo.GetUserByLogin(ctx, user.Email)
 	if err == nil {

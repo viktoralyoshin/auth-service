@@ -23,6 +23,26 @@ func NewAuthHandler(service *service.AuthService, tokenManager jwt.TokenManager)
 	}
 }
 
+func (h *AuthHandler) Login(ctx context.Context, req *authpb.LoginRequest) (*authpb.LoginResponse, error) {
+	user, err := h.service.Login(ctx, req)
+	if err != nil {
+		log.Error().Msgf("Login, failed to login user: %v", err)
+		return &authpb.LoginResponse{}, err
+	}
+
+	accessToken, refreshToken, err := h.tokenManager.GenerateTokens(user.Id.String(), string(user.Role))
+	if err != nil {
+		log.Error().Msgf("Login, failed to generate tokens: %v", err)
+		return nil, err
+	}
+
+	return &authpb.LoginResponse{
+		UserId:       user.Id.String(),
+		AccessToken:  accessToken,
+		RefreshToken: refreshToken,
+	}, nil
+}
+
 func (h *AuthHandler) Register(ctx context.Context, req *authpb.RegisterRequest) (*authpb.RegisterResponse, error) {
 	user := &model.User{Email: req.Email, Username: req.Username, Password: req.Password}
 
