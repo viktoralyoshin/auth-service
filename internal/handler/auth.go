@@ -38,6 +38,8 @@ func (h *AuthHandler) Login(ctx context.Context, req *authpb.LoginRequest) (*aut
 
 	return &authpb.LoginResponse{
 		UserId:       user.Id.String(),
+		Username:     user.Username,
+		Email:        user.Email,
 		AccessToken:  accessToken,
 		RefreshToken: refreshToken,
 	}, nil
@@ -60,6 +62,8 @@ func (h *AuthHandler) Register(ctx context.Context, req *authpb.RegisterRequest)
 
 	return &authpb.RegisterResponse{
 		UserId:       createdUser.Id.String(),
+		Username:     createdUser.Username,
+		Email:        createdUser.Email,
 		AccessToken:  accessToken,
 		RefreshToken: refreshToken,
 	}, nil
