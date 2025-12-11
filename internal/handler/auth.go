@@ -35,7 +35,7 @@ func (h *AuthHandler) Login(ctx context.Context, req *authpb.LoginRequest) (*aut
 	if err != nil {
 		if errors.Is(err, errs.ErrUserNotFound) {
 			log.Warn().Str("email", req.Login).Msg("login failed: user not found")
-			return nil, status.Error(codes.NotFound, "user not found")
+			return nil, status.Error(codes.NotFound, err.Error())
 		}
 
 		log.Warn().Err(err).Str("email", req.Login).Msg("login failed")
@@ -77,10 +77,10 @@ func (h *AuthHandler) Register(ctx context.Context, req *authpb.RegisterRequest)
 	if err != nil {
 		if errors.Is(err, errs.ErrUserEmailExists) {
 			log.Warn().Str("email", req.Email).Msg("registration failed: email already exists")
-			return nil, status.Error(codes.AlreadyExists, "email already exists")
+			return nil, status.Error(codes.AlreadyExists, err.Error())
 		} else if errors.Is(err, errs.ErrUserUsernameExists) {
 			log.Warn().Str("username", req.Username).Msg("registration failed: username already exists")
-			return nil, status.Error(codes.AlreadyExists, "username already exists")
+			return nil, status.Error(codes.AlreadyExists, err.Error())
 		}
 
 		log.Error().

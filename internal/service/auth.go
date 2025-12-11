@@ -12,7 +12,6 @@ import (
 )
 
 type AuthService struct {
-	authpb.UnimplementedAuthServiceServer
 	repo *storage.UserRepo
 }
 

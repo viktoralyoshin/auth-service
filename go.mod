@@ -7,8 +7,8 @@ require (
 	github.com/lib/pq v1.10.9
 	github.com/pressly/goose/v3 v3.26.0
 	github.com/rs/zerolog v1.34.0
-	github.com/viktoralyoshin/playhub-proto v1.1.0
-	github.com/viktoralyoshin/utils v1.3.1
+	github.com/viktoralyoshin/playhub-proto v1.1.8
+	github.com/viktoralyoshin/utils v1.3.4
 	google.golang.org/grpc v1.77.0
 )
 
