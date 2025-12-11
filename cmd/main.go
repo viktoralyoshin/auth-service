@@ -9,12 +9,12 @@ import (
 )
 
 func main() {
-	logger.Setup()
-
 	cfg, err := config.Load()
 	if err != nil {
-		log.Fatal().Msgf("failed to load config: %v", err)
+		log.Fatal().Err(err).Msg("failed to load config")
 	}
+
+	logger.Setup(cfg.Env)
 
 	app.Start(cfg)
 }

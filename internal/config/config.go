@@ -13,6 +13,7 @@ type Config struct {
 	DBName          string
 	GRPCPort        string
 	JWTSigningKey   string
+	Env             string
 	RefreshTokenTtl time.Duration
 	AccessTokenTtl  time.Duration
 }
@@ -39,6 +40,7 @@ func Load() (*Config, error) {
 		DBName:          os.Getenv("DBName"),
 		GRPCPort:        os.Getenv("GRPCPort"),
 		JWTSigningKey:   os.Getenv("JWT_SIGNING_KEY"),
+		Env:             os.Getenv("ENV"),
 		RefreshTokenTtl: refreshDuration,
 		AccessTokenTtl:  accessDuration,
 	}

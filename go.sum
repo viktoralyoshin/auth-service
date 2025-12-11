@@ -54,6 +54,8 @@ github.com/viktoralyoshin/utils v1.2.2 h1:5B8I+b3cnUU75CRvuNsLXfRXPgtnH8PwA0uai6
 github.com/viktoralyoshin/utils v1.2.2/go.mod h1:YA1z2yz2OHp0KvdwK4lFu+2YL4nPE/HRwRpPQL+H+Xo=
 github.com/viktoralyoshin/utils v1.2.3 h1:s8T9XrAacNS29Ut+x7ReQIXxSiCskKzMiooS4dLAaEQ=
 github.com/viktoralyoshin/utils v1.2.3/go.mod h1:YA1z2yz2OHp0KvdwK4lFu+2YL4nPE/HRwRpPQL+H+Xo=
+github.com/viktoralyoshin/utils v1.3.1 h1:PRu5kn2xQEBpXu2u09zwQTzdjfuDZwuNnPtUsHMQ+xU=
+github.com/viktoralyoshin/utils v1.3.1/go.mod h1:3erQhbozV0nPmKxlKHVeF+T8zIlmRon63MVLYfDJ7sI=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 go.opentelemetry.io/auto/sdk v1.2.1 h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64=
 go.opentelemetry.io/auto/sdk v1.2.1/go.mod h1:KRTj+aOaElaLi+wW1kO/DZRXwkF4C5xPbEe3ZiIhN7Y=
