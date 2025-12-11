@@ -48,8 +48,12 @@ github.com/viktoralyoshin/playhub-proto v1.0.2 h1:BTuZ3Gy/Sy7dhXUwdpPpJMKUf5hkq8
 github.com/viktoralyoshin/playhub-proto v1.0.2/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
 github.com/viktoralyoshin/playhub-proto v1.0.6 h1:bAWt6w4S+RcUMNxWfqldR3R463vvo0ds4Jhig28wMc8=
 github.com/viktoralyoshin/playhub-proto v1.0.6/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
+github.com/viktoralyoshin/playhub-proto v1.1.0 h1:pe2I+xwhOZloKHbv2Z/BibhkeCGuyQOvPMO0t+zt6Ls=
+github.com/viktoralyoshin/playhub-proto v1.1.0/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
 github.com/viktoralyoshin/utils v1.2.2 h1:5B8I+b3cnUU75CRvuNsLXfRXPgtnH8PwA0uai6ISZCc=
 github.com/viktoralyoshin/utils v1.2.2/go.mod h1:YA1z2yz2OHp0KvdwK4lFu+2YL4nPE/HRwRpPQL+H+Xo=
+github.com/viktoralyoshin/utils v1.2.3 h1:s8T9XrAacNS29Ut+x7ReQIXxSiCskKzMiooS4dLAaEQ=
+github.com/viktoralyoshin/utils v1.2.3/go.mod h1:YA1z2yz2OHp0KvdwK4lFu+2YL4nPE/HRwRpPQL+H+Xo=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 go.opentelemetry.io/auto/sdk v1.2.1 h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64=
 go.opentelemetry.io/auto/sdk v1.2.1/go.mod h1:KRTj+aOaElaLi+wW1kO/DZRXwkF4C5xPbEe3ZiIhN7Y=

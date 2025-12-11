@@ -68,3 +68,15 @@ func (h *AuthHandler) Register(ctx context.Context, req *authpb.RegisterRequest)
 		RefreshToken: refreshToken,
 	}, nil
 }
+
+func (h *AuthHandler) ValidateToken(ctx context.Context, req *authpb.TokenRequest) (*authpb.TokenResponse, error) {
+	userClaims, err := h.tokenManager.ParseToken(req.TokenStr)
+	if err != nil {
+		return nil, err
+	}
+
+	return &authpb.TokenResponse{
+		UserId:   userClaims.UserId,
+		UserRole: userClaims.UserRole,
+	}, nil
+}
